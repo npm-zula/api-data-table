@@ -26,9 +26,6 @@
 13. The interaction with API endpoints shall be carried out through jQuery ajax         --- DONE
 
 
-
-
-
 TODO 
 
 MAKE CSS file
