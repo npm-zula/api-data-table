@@ -1,0 +1,577 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>AASHIR's Assignment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js"></script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Delicious+Handrawn&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Delicious Handrawn', cursive;
+            font-size: 20px;
+            background-color: rgb(222, 238, 165);
+        }
+
+        form {
+            width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 5px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        input[type="url"],
+        input[type="tel"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: none;
+        }
+
+        input[type="submit"] {
+            background-color: rgb(156, 172, 95);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+            align-self: center;
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg " style=" font-size: 22px;">
+        <div class="container">
+            <a class="navbar-brand " style="font-size: 30px;" href="#">AASHIR's SPA</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#home">Home</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#table">Data Table</a>
+                    </li>
+                    <li class="nav-item mx-2">
+                        <a class="nav-link" href="#addData">Data Form</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Content -->
+    <div class="container mt-5" id="home">
+        <div class="container p-10 " style="margin-top: 10rem; margin-bottom: 10rem; ">
+            <div class="row my-5">
+                <div class="col-md-12 text-center my-5">
+                    <h1 class="hero-title" style="font-size: 56px;">Welcome to Aashir's API Assignment.</h1>
+                    <p class="hero-subtitle my-5" style="font-size: 26px;">
+                        In this Assignment I will fill a table with data from an API endpoint. <br />
+                        I will then update, delete and add more data to the table by using AJAX/JQUERY Form.
+                    </p>
+                    <a href="#" class="btn btn-primary btn-lg"
+                        style="background-color: rgb(156, 172, 95); border: rgb(156, 172, 95);">Get Started</a>
+                </div>
+            </div>
+        </div>
+
+
+        <!-- TABLE -->
+        <div id="table">
+            <h1 class="text-center mb-5 font-weight-bold">API DATA Table</h1>
+            <table class="table table-striped table-hover" style="border: rgb(156, 172, 95); font-size: 24px;">
+                <thead style="background-color:rgb(156, 172, 95); font-size: 28px;">
+                    <tr>
+                        <th id="id-header">ID</th>
+                        <th id="name-header">Name</th>
+                        <th id="username-header">Username</th>
+                        <th id="email-header">Email</th>
+                        <th id="phone-header">Phone</th>
+                        <th id="website-header">Website</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody id="table-body">
+                </tbody>
+            </table>
+        </div>
+        <!-- <button class="btn btn-primary" onclick="addRow()">Add Row</button> -->
+
+        <!-- FORM -->
+        <div class="text-center" id="addData">
+            <button class="btn btn-primary btn-lg my-5"
+                style="background-color: rgb(156, 172, 95); border: rgb(156, 172, 95); align-self: center;"
+                id="show-form">Show Form</button>
+        </div>
+        <div class="row">
+            <div class="mx-auto col-10 col-md-8 col-lg-6">
+
+                <div id="form-container" style="display: none; font-size: 28px;">
+                    <form id="myForm">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="website">Website:</label>
+                        <input type="text" id="website" name="website" required>
+
+
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
+
+                <div id="form-container-update" style="display: none; font-size: 28px;">
+                    <form id="myForm-update">
+                        <label for="id">ID:</label>
+                        <input type="text" id="userid" name="id" disabled>
+
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <label for="username">Username:</label>
+                        <input type="text" id="username" name="username" required>
+
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <label for="phone">Phone:</label>
+                        <input type="tel" id="phone" name="phone" required>
+
+                        <label for="website">Website:</label>
+                        <input type="text" id="website" name="website" required>
+
+                        <input class="update-btn" type="submit" value="Update">
+                    </form>
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!-- $(document).ready(function() {
+  // Validate form on submit
+  $("#myForm").submit(function(event) {
+    // Prevent form from submitting
+    event.preventDefault();
+    // Validate name
+    var name = $("#name").val();
+    if (name == "") {
+      alert("Name must be filled out");
+      return false;
+    }
+    // Validate email
+    var email = $("#email").val();
+    var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (email == "") {
+      alert("Email must be filled out");
+      return false;
+    } else if (!emailPattern.test(email)) {
+      alert("Invalid email address");
+      return false;
+    }
+    // Validate password
+    var password = $("#password").val();
+    if (password == "") {
+      alert("Password must be filled out");
+      return false;
+    } else if (password.length < 8) {
+      alert("Password must be at least 8 characters long");
+      return false;
+    }
+    // Validate confirm password
+    var confirmPassword = $("#confirm-password").val();
+    if (confirmPassword == "") {
+      alert("Confirm Password must be filled out");
+      return false;
+    } else if (confirmPassword != password) {
+      alert("Passwords do not match");
+      return false;
+    }
+    // If all validation passes, submit form
+    alert("Form submitted successfully");
+    $("#myForm")[0].submit();
+  });
+});
+ -->
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center text-lg-start p-4" style=" margin-top: 10px;">
+        <div class="text-center p-3">
+            © 2023 Aashir Aftab: All rights reserved
+        </div>
+    </footer>
+
+
+    <!-- Include Bootstrap JS and jQuery -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+
+
+
+
+
+    // function loadTableData() {
+    //     // make an ajax request to get the data from the API
+    //     $.ajax({
+    //         url: 'https://jsonplaceholder.typicode.com/users/',
+    //         type: 'GET',
+    //         dataType: 'json',
+    //         success: function(response) {
+    //             // build the table rows
+    //             var rows = '';
+    //             $.each(response, function(index, user) {
+    //                 rows += '<tr>';
+    //                 rows += '<td>' + user.id + '</td>';
+    //                 rows += '<td>' + user.name + '</td>';
+    //                 rows += '<td>' + user.username + '</td>';
+    //                 rows += '<td>' + user.email + '</td>';
+    //                 rows += '<td>' + user.phone + '</td>';
+    //                 rows += '<td>' + user.website + '</td>';
+    //                 rows += '</tr>';
+    //             });
+
+    //             // update the table body with the new rows
+    //             $('#table-body').html(rows);
+    //         },
+    //         error: function(xhr, status, error) {
+    //             console.log(xhr.responseText);
+    //         }
+    //     });
+    // }
+
+    // // load the table data on page load
+    // loadTableData();
+    </script>
+
+    <script>
+        $(document).ready(function () {
+            fetchData()
+        });
+
+        $(document).ready(function () {
+            $('#myForm').submit(function (event) {
+                event.preventDefault();
+
+                var name = $('#name').val();
+                var username = $('#username').val();
+                var email = $('#email').val();
+                var phone = $('#phone').val();
+                var website = $('#website').val();
+
+                if (name === '') {
+                    alert('Please enter your name.');
+                } else if (username === '') {
+                    alert('Please enter your username.');
+                } else if (!isValidEmail(email)) {
+                    alert('Please enter a valid email address.');
+                } else if (phone === '') {
+                    alert('Please enter a valid 10-digit phone number.');
+                } else if (website === '') {
+                    alert('Please enter a valid website URL.');
+                } else {
+                    // SUBMIT
+                    var user = {
+                        name: name,
+                        username: username,
+                        email: email,
+                        phone: phone,
+                        website: website
+                    };
+                    $.ajax({
+                        type: 'POST',
+                        url: 'https://jsonplaceholder.typicode.com/users',
+                        data: user,
+                        success: function (response) {
+                            // append the table with the response data
+                            var newRow = '<tr><td>' + response.id + '</td><td>' + response.name + '</td><td>' + response.username + '</td><td>' + response.email + '</td><td>' + response.phone + '</td><td>' + response.website + '</td><td><button class="btn btn-dark btn-sm delete-btn" data-id=' + response.id + '>Delete</button></td></tr>';
+                            // $("<td></td>").append("<button class='btn btn-dark btn-sm delete-btn' data-id='" + value.id + "' '>Delete</button>").appendTo(newRow);
+                            $('#table-body').append(newRow);
+
+                            // reset the form
+                            $('#myForm')[0].reset();
+
+                            // $(".delete-btn").click(function () {
+                            //     var id = $(this).data("id");
+                            //     console.log(id)
+                            //     deleteRecord(id, response);
+                            // });
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert('Error submitting form: ' + textStatus + ' - ' + errorThrown);
+                        }
+                    });
+
+                }
+            });
+
+            // add click event listener to delete buttons
+            $(document).on('click', '.delete-btn', function () {
+                var confirmDelete = confirm("Are you sure you want to delete this record?");
+                var row = $(this).closest('tr');
+                var userId = row.index() + 1; // get user ID from row index (add 1 because table indices start at 0)
+                if (confirmDelete) {
+                    $.ajax({
+                        type: 'DELETE',
+                        url: 'https://jsonplaceholder.typicode.com/users/' + userId,
+                        success: function () {
+                            row.remove(); // remove row from table on success
+                        },
+                        error: function (jqXHR, textStatus, errorThrown) {
+                            alert('Error deleting user: ' + textStatus + ' - ' + errorThrown);
+                        }
+                    });
+                }
+            });
+
+
+            function isValidEmail(email) {
+                var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return emailPattern.test(email);
+            }
+
+            function isValidPhoneNumber(phone) {
+                var phoneNumberPattern = /^\d{10}$/;
+                return phoneNumberPattern.test(phone);
+            }
+
+            function isValidWebsite(website) {
+                var websitePattern = /^(http|https):\/\/[^ "]+$/;
+                return websitePattern.test(website);
+            }
+        });
+
+
+        // toggle form on button click
+        $("#show-form").click(function () {
+            $("#form-container").slideToggle();
+            $(this).text(function (i, text) {
+                return text === "Show Form" ? "Hide Form" : "Show Form";
+            });
+        });
+
+
+
+
+        var sortedColumn = null;
+        var sortOrder = -1;
+
+        function sortTable(column, data) {
+            sortedColumn = column;
+            sortOrder = -sortOrder;
+            data.sort(function (a, b) {
+                var comparison = 0;
+                if (a[column] > b[column]) {
+                    comparison = 1;
+                } else if (a[column] < b[column]) {
+                    comparison = -1;
+                }
+                return sortOrder * comparison;
+            });
+        }
+
+        function populateTable(data) {
+            $("#table-body").empty();
+
+            $.each(data, function (index, value) {
+                var row = $("<tr>");
+                $("<td></td>").text(value.id).appendTo(row);
+                $("<td></td>").text(value.name).appendTo(row);
+                $("<td></td>").text(value.username).appendTo(row);
+                $("<td></td>").text(value.email).appendTo(row);
+                $("<td></td>").text(value.phone).appendTo(row);
+                $("<td></td>").text(value.website).appendTo(row);
+                $("<td></td>").append("<button class='btn btn-dark btn-sm delete-btn' data-id='" + value.id + "' '>Delete</button>").appendTo(row);
+                $("<td></td>").append("<button class='btn btn-success btn-sm edit-btn' data-id='" + value.id + "' '>Edit</button>").appendTo(row);
+                $("#table-body").append(row);
+            });
+
+            $(".delete-btn").click(function () {
+                var id = $(this).data("id");
+                deleteRecord(id, data);
+            });
+
+            // // toggle form on button click
+            // $(".edit-btn").click(function () {
+            //     // $("#form-container-update").slideToggle();
+            //     handleEditClick
+
+            // });
+
+            // $(".edit-btn").click(function () {
+            //     var id = $(this).data("id");
+            //     editRecord(id, data);
+            // });
+
+            $(document).on("click", ".edit-btn", handleEditClick);
+            
+        }
+
+        $("#myForm-update").on("submit", handleEditSubmit);
+
+        function handleEditSubmit(event) {
+            event.preventDefault();
+            var formData = $(this).serialize();
+            var id = $(this).find("input[name='id']").val();
+            var url = "https://jsonplaceholder.typicode.com/users/" + id;
+
+            $.ajax({
+                url: url,
+                type: "PUT",
+                data: formData,
+                success: function (data) {
+                    updateRowData(id, data);
+                    $("#myForm-update").slideToggle()
+                },
+                error: function () {
+                    alert("Failed to update data");
+                }
+            });
+        }
+
+        // function to update row data with new values
+        function updateRowData(id, data) {
+            var row = $("button.edit-btn[data-id='" + id + "']").closest("tr");
+            row.find("td:nth-child(2)").text(data.name);
+            row.find("td:nth-child(3)").text(data.username);
+            row.find("td:nth-child(4)").text(data.email);
+            row.find("td:nth-child(5)").text(data.phone);
+            row.find("td:nth-child(6)").text(data.website);
+        }
+
+
+
+        // function to handle edit button click event
+        function handleEditClick(event) {
+            var id = $(this).data("id");
+            var row = $(this).closest("tr");
+            var name = row.find("td:nth-child(2)").text();
+            var username = row.find("td:nth-child(3)").text();
+            var email = row.find("td:nth-child(4)").text();
+            var phone = row.find("td:nth-child(5)").text();
+            var website = row.find("td:nth-child(6)").text();
+
+            // fill form fields with row data
+            $("#form-container-update input[name='id']").val(id);
+            $("#form-container-update input[name='name']").val(name);
+            $("#form-container-update input[name='username']").val(username);
+            $("#form-container-update input[name='email']").val(email);
+            $("#form-container-update input[name='phone']").val(phone);
+            $("#form-container-update input[name='website']").val(website);
+
+            // $("#form-container-update").submit(function (event) {
+            //     event.preventDefault();
+            //     handleEditSubmit(id);
+            // });
+
+            // show edit form
+            $("#form-container-update").slideToggle();
+        }
+
+
+        function deleteRecord(id, data) {
+            var confirmDelete = confirm("Are you sure you want to delete this record?");
+            if (confirmDelete) {
+                $.ajax({
+                    url: "https://jsonplaceholder.typicode.com/users/" + id,
+                    type: "DELETE",
+                    success: function (result) {
+                        data = data.filter(function (user) {
+                            return user.id !== id;
+                        });
+                        populateTable(data);
+                    },
+                    error: function (jqXHR, textStatus, errorThrown) {
+                        console.log(textStatus + ": " + errorThrown);
+                    }
+                });
+            }
+        }
+
+        function fetchData() {
+            $.ajax({
+                url: "https://jsonplaceholder.typicode.com/users",
+                dataType: "json",
+                success: function (data) {
+                    // initial table population
+                    populateTable(data);
+
+                    // sort table on header click
+                    $("#id-header").click(function () {
+                        sortTable("id", data);
+                        populateTable(data);
+                    });
+                    $("#name-header").click(function () {
+                        sortTable("name", data);
+                        populateTable(data);
+                    });
+                    $("#username-header").click(function () {
+                        sortTable("username", data);
+                        populateTable(data);
+                    });
+                    $("#email-header").click(function () {
+                        sortTable("email", data);
+                        populateTable(data);
+                    });
+                    $("#phone-header").click(function () {
+                        sortTable("phone", data);
+                        populateTable(data);
+                    });
+                    $("#website-header").click(function () {
+                        sortTable("website", data);
+                        populateTable(data);
+                    });
+                }
+            });
+        }
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

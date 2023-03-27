@@ -1,0 +1,36 @@
+1. Create a dynamic html table and style it through bootstrap        --- DONE
+
+2. Create data adding HTML form and style it through bootstrap        --- DONE  
+        a. The form shall contain all the fields of API endpoint        --- DONE
+
+3. Validate the form through JavaScript/jQuery        --- DONE
+
+4. By default, the form shall not be visible, it should be made visible through a button click.         --- DONE
+    The form shall slide down for visibility and slide up for making it invisible/hide.
+
+5. The form shall be connected with APIs            --- DONE
+
+6. The data submitted through form shall be posted to the relevant API endpoint
+
+7. The new data added through your form shall immediately appear in the table
+
+8. The table shall display data from the relevant API endpoint         --- DONE
+9. By clicking the header of any column, the entire data should be sorted based on that column in descending order         --- DONE
+
+10. Each row of the table shall have edit and delete buttons
+        a. By clicking the edit button, form shall be made visible, populated with data, and update button shall appear instead of Add. 
+        b. By clicking the delete buttons, the record shall be deleted.        --- DONE
+
+11. The application shall have GET, POST, PUT and Delete request methods         --- DONE
+12. The application shall exhibit click, slide, form submit events, and others if there are any         --- DONE
+13. The interaction with API endpoints shall be carried out through jQuery ajax         --- DONE
+
+
+
+
+
+TODO 
+
+MAKE CSS file
+
+MAKE JS FILE
